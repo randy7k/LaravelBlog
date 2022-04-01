@@ -1,6 +1,5 @@
 
-@extends('layout')
-@section('content')
+<x-layout title="{{ $post->title }}">
     <artucle>
         <h1>
             {{ $post->title }}
@@ -10,4 +9,4 @@
         </p>
     </artucle>
     <a href="/">Go back</a>
-@endsection
+</x-layout>

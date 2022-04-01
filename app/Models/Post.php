@@ -24,6 +24,14 @@ class Post{
         return static::all()->where('slug', $slug)->first();
     }
 
+    public static function findOrFail($slug){
+        $post = static::find($slug);
+        if(!$post){
+            abort(404);
+        }
+        return $post;
+    }
+
     public static function all(){
         return cache()->rememberForever('post.all', function(){
             return collect(glob(resource_path('posts') . '/*.html'))

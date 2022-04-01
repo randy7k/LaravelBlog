@@ -1,5 +1,5 @@
-@extends('layout')
-@section('content')
+<x-layout title="My Blog">
+
     @foreach ($posts as $post)
         <article>
             <h1>
@@ -12,4 +12,5 @@
             </p>
         </article>
     @endforeach
-@endsection
+
+</x-layout>
