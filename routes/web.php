@@ -18,13 +18,16 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
-
 Route::get('/', function () {
-    return view('posts');
+    $posts = Post::all();
+    return view('posts',[
+        'posts' => $posts
+    ]);
+
 });
 
 Route::get('/post/{post}', function ($slug) {
-    //Find the post with the slug $slug and pass it to the view called post.blade.php
-    $post = Post::find($slug);
-    return view('post', ['post' => $post]);
+    return view('post', [
+        'post' => Post::find($slug)
+    ]);
 })->where('post', '[A-z_\-]+');
